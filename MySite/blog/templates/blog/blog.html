@@ -1,0 +1,23 @@
+{% extends 'blog/main.html' %}
+{% load static %}
+{% block main_section %}
+<div class="inner-page-title-wrapper">
+    <h1 class="title-1 text-center">Новости</h1>
+</div>
+<form method="GET" action="{% url 'search_news' %}">
+    <input type="text" name="search_text" placeholder="Поиск новости">
+    <button type="submit">Найти</button>
+</form>
+<div class="news-post">
+    {% for post in news %}
+    <div class="news">
+        <a style="color: black; text-align:center;text-decoration: none; font-weight: 800; padding-bottom: 20px;" href="{% url 'blog-novosti' post.pk %}">{{ post.title }}</a>
+        {% if post.image %}
+        <img class="img-new" src="{{ post.image.url }}" alt="{{ post.title }}">
+        {% endif %}
+    </div>
+    {% empty %}
+    <p>Новости не найдены.</p>
+    {% endfor %}
+</div>
+{% endblock main_section %}

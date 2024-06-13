@@ -1,0 +1,17 @@
+{% extends 'blog/main.html' %}
+{% load static %}
+{% block main_section %}
+<div id="page" class="container">
+    <div class="features">
+        <div class="inner-page-title-wrapper">
+    <h1 class="title-1 text-center">Добавить новость</h1>
+</div>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <span>{{ error }}</span><br>
+            <button class="btn btn-success" type="submit">Добавить</button>
+        </form>
+    </div>
+</div>
+{% endblock main_section %}

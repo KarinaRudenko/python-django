@@ -1,0 +1,64 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ title }}</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.svg' %}">
+    <link rel="stylesheet" href="{% static 'blog/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/main.css' %}">
+
+</head>
+<header class="header" id="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="/">
+                <img src="{% static 'img/logo.svg' %}" alt="ЭпикТрэвел">
+                </a>
+                <ul class="nav-list">
+                    <li><a href="/" >Главная</a></li>
+				<li><a href="/news">Новости</a></li>
+				<li><a href="/contacts" >Контакты</a></li>
+                    {% if request.user.is_authenticated %}
+                    <li><a href="/create" >Добавить новость</a></li>
+                    <li><a {{user.username}} href="/profile">Профиль</a>|<a {{user.username}} href="/logout">Выйти</a></li>
+                    {% else %}
+                    <li><a href="/register">Регистрация</a>|<a href="/login">Войти</a></li>
+                    {% endif %}
+                </ul>
+                <button class="btn-mobile-nav" id="btn-mobile-nav" type="button">
+                    <img src="./img//icons/open-mobile-nav.svg" id="mobile-nav-img" alt="Open nav">
+                </button>
+            </nav>
+        </div>
+    </header>
+<body>
+<main class="container">
+    <div class="row">
+        <div class="col-md-8">
+            {% block main_section %}
+            {% endblock %}
+        </div>
+
+    </div>
+</main>
+</body>
+<footer class="footer">
+        <div class="container">
+            <div class="footer-row">
+                <div class="footer-copyright">
+                    <p>2024 © ЭпикТрэвел. <br class="desktop-only">Все права защищены</p>
+                </div>
+
+                <address class="footer-contacts">
+                    <a href="tel:+79054561234" class="footer-phone">+7 (905) 456-12-34</a><br>
+                    <a href="mailto:info@epictravel.ru" class="footer-email">info@epictravel.ru</a><br>
+                    <p class="footer-address">г. Москва, Рязанский проспект 54, офис 112</p>
+                </address>
+            </div>
+        </div>
+    </footer>
+</html>

@@ -1,0 +1,59 @@
+
+{% extends 'blog/main.html' %}
+{% load static %}
+{% block main_section %}
+   <main class="main-page">
+        <div class="container">
+            <section class="promo">
+             <div class="promo-desc">
+                <h1 class="promo-title">Открой Мир</h1>
+                <p class="promo-text">Путешествуй. Исследуй. Открывай</p>
+             </div>
+            </section>
+            <div class="main-content">
+                <section class="content-row">
+
+                    <div class="content-img">
+                        <picture>
+                            <img src="{% static 'img/img-01.jpg' %}" alt="Популярные направления">
+                        </picture>
+                    </div>
+
+                    <div class="content-text">
+                        <h2 class="title-1"><span>Популярные</span> направления</h2>
+                        <p>Уникальные впечатления и незабываемые моменты. От загадочных уголков древних городов до бескрайних пляжей с кристально чистой водой. Погрузитесь в культурные сокровища Европы, ощутите волнение азиатских приключений, или отправьтесь на удивительные острова - выбор за вами.</p>
+                    </div>
+
+                </section>
+
+                <section class="content-row content-row-reverse content-column-on-mobile">
+                    <div class="content-img">
+                        <picture>
+                            <img src="{% static 'img/img-02.jpg' %}" alt="Впечатляющие маршруты">
+                        </picture>
+                    </div>
+
+                    <div class="content-text">
+                        <h2 class="title-1"><span>Впечатляющие</span> маршруты</h2>
+                        <p>Пройдите путем, который проложен для тех, кто ищет нечто особенное: от восхитительных природных пейзажей и культурных сокровищ до захватывающих городских приключений. Поддайтесь магии увлекательных маршрутов ЭпикТрэвел и дайте волю своим мечтам – ведь ваше следующее приключение начинается здесь и сейчас.</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+       <div class="inner-page-title-wrapper">
+                <h1 class="title-1 text-center">Последние новости</h1>
+            </div>
+       <div class="news-post">
+{% for post in news %}
+        <div class="news">
+            <a style="color: black; text-align:center;text-decoration: none; font-weight: 800; padding-bottom: 20px;" href="{% url 'blog-novosti' post.pk %}">{{ post.title }}</a>
+            {% if post.image %}
+                <img class="img-new" src="{{ post.image.url }}" alt="{{ post.title }}">
+            {% endif %}
+
+        </div>
+    {% endfor %}
+</div>
+    </main>
+
+{% endblock main_section %}

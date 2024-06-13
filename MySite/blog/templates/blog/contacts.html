@@ -1,0 +1,116 @@
+{% extends 'blog/main.html' %}
+{% load static %}
+{% block main_section %}
+    <main class="inner-page">
+        <div class="container">
+
+            <div class="inner-page-title-wrapper">
+                <h1 class="title-1 text-center">Контакты</h1>
+            </div>
+
+            <div class="contacts-columns">
+                <form class="form-wrapper">
+
+                    <h2 class="title-2">Заявка на подбор тура</h2>
+
+                    <section class="form-group">
+                        <h3 class="title-3">Личные данные</h3>
+                        <div class="inputs-wrapper">
+                            <input type="text" class="input" placeholder="Введите имя" name="name">
+                            <input type="tel" class="input input-50" placeholder="Телефон" name="phone">
+                            <input type="email" class="input input-50" placeholder="Email" name="email">
+                        </div>
+                    </section>
+
+
+                    <section class="form-group">
+                        <h3 class="title-3">Количество человек для тура</h3>
+                        <ul class="radio-list">
+                            <li>
+                                <label>
+                                    <input type="radio" class="real-radio visually-hidden" name="number" value="2-4">
+                                    <span class="fake-radio"></span>
+                                    2 - 4 человека
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" class="real-radio visually-hidden" name="number" value="5-10">
+                                    <span class="fake-radio"></span>
+                                    5 - 10 человек
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" class="real-radio visually-hidden" name="number" value="11+">
+                                    <span class="fake-radio"></span>
+                                    11 человек и более
+                                </label>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section class="form-group">
+                        <h3 class="title-3">Какие направления вам интересны</h3>
+                        <ul class="checkbox-list">
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="real-checkbox visually-hidden" name="tracking">
+                                    <span class="fake-checkbox"></span>
+                                    Трекинг туры, походы по горам и пересеченной местности.
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="real-checkbox visually-hidden" name="mountains">
+                                    <span class="fake-checkbox"></span>
+                                    Восхождения на вершины.
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="real-checkbox visually-hidden" name="exotic">
+                                    <span class="fake-checkbox"></span>
+                                    Экзотические джунгли, вулканы.
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="real-checkbox visually-hidden" name="combi">
+                                    <span class="fake-checkbox"></span>
+                                    Комбинированные: море, горы, города, лес.
+                                </label>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <button class="submit-btn" type="submit">Отправить заявку</button>
+
+                </form>
+
+                <section class="address-wrapper">
+
+                    <div class="address-item">
+                        <h2 class="title-2">Телефон и адрес</h2>
+                        <address>
+                            <ul class="address-list">
+                                <li><img src="{% static 'img/phone.svg' %}" alt="Телефон"><a href="tel:79054561234" class="link">+7 (905) 456-12-34</a></li>
+                                <li><img src="{% static 'img/mail.svg' %}" alt="Email"><a href="mailto:info@epictravel.ru" class="link">info@epictravel.ru</a></li>
+                                <li><img src="{% static 'img/map.svg' %}" alt="Адрес"> г. Москва, Рязанский проспект 54, офис 112.</li>
+                            </ul>
+                        </address>
+                    </div>
+
+                    <div class="address-item">
+                        <h2 class="title-2">Карта</h2>
+                        <iframe class="yandex-map" src="https://yandex.ru/map-widget/v1/?um=constructor%3A59022250452b66e9beb3be9759059dd8b922f08c1155296b0473f6dcab3f1d06&amp;source=constructor&amp;scroll=false"></iframe>
+                    </div>
+
+                </section>
+
+            </div>
+
+
+        </div>
+    </main>
+{% endblock main_section %}

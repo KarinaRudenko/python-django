@@ -1,0 +1,11 @@
+{% extends 'blog/main.html' %}
+{% load static %}
+{% block main_section %}
+<div class="card mb-3 border-0 nth-shadow">
+        <form action="" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Изменить пароль</button>
+</form>
+    </div>
+{% endblock main_section %}

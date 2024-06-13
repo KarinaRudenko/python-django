@@ -1,0 +1,25 @@
+{% extends 'blog/main.html' %}
+{% load static %}
+{% block main_section %}
+<div class="profile">
+    <div class="inner-page-title-wrapper">
+        <h1 class="title-1 text-center">Профиль</h1>
+    </div>
+    <p><span>Имя пользователя:</span> {{ request.user.username }}</p>
+    <p><span>Email:</span> {{ request.user.email }}</p>
+    <a href="{% url 'edit-pass' %}">Изменить пароль</a>
+</div>
+
+<h2>Ваши комментарии</h2>
+<ul>
+    {% for comment in user_comments %}
+    <li>
+        <p>{{ comment.body }}</p>
+        <small>Опубликован: {{ comment.created }}</small>
+    </li>
+    {% empty %}
+    <p>Комментариев нет.</p>
+    {% endfor %}
+</ul>
+</div>
+{% endblock main_section %}
